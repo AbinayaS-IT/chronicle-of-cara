@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,76 +10,55 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Fantasy theme variables */
+    --twilight-purple: #614a92;
+    --dawn-peach: #f8c4b4;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -87,6 +70,10 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Fantasy theme variables for dark mode */
+    --twilight-purple: #372a57;
+    --dawn-peach: #c9917f;
   }
 }
 
@@ -96,6 +83,65 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-serif;
+  }
+}
+
+@layer components {
+  .fantasy-module-card {
+    @apply relative p-6 rounded-xl backdrop-blur-sm bg-white/10 border border-fantasy-pearl/30
+          shadow-lg overflow-hidden transition-all duration-500 transform hover:scale-[1.02]
+          hover:shadow-xl flex flex-col items-center;
+  }
+
+  .fantasy-module-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-fantasy-lavender/20 to-fantasy-rose/20
+          opacity-60 z-0;
+  }
+
+  .fantasy-module-card:hover::before {
+    @apply opacity-80;
+  }
+
+  .fantasy-gold-border {
+    @apply border-2 border-fantasy-gold/50 before:absolute before:inset-0 before:rounded-xl
+          before:border before:border-fantasy-pearl/20 before:m-0.5;
+  }
+
+  .fantasy-title {
+    @apply font-cursive text-4xl md:text-5xl lg:text-6xl text-fantasy-gold drop-shadow-lg
+          bg-clip-text text-transparent bg-gradient-to-r from-fantasy-gold to-fantasy-pearl;
+  }
+
+  .fantasy-subtitle {
+    @apply font-serif text-xl md:text-2xl text-fantasy-pearl/90 italic;
+  }
+
+  .fantasy-button {
+    @apply px-6 py-3 rounded-lg bg-fantasy-gold/20 hover:bg-fantasy-gold/30
+          text-fantasy-gold border border-fantasy-gold/50 transition-all
+          shadow-lg hover:shadow-xl backdrop-blur-sm;
+  }
+  
+  .starry-background {
+    @apply fixed inset-0 bg-starry-gradient z-[-1];
+  }
+  
+  .shimmer-effect {
+    @apply bg-gold-shimmer bg-[length:200%_100%] animate-shimmer;
+  }
+  
+  .scroll-content {
+    @apply max-h-[85vh] overflow-y-auto scrollbar-hide;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
