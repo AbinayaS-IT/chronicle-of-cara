@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -37,9 +39,18 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Fantasy theme variables */
-    --twilight-purple: #614a92;
-    --dawn-peach: #f8c4b4;
+    /* Romantic theme variables */
+    --deep-blush: #D93861;
+    --velvet-purple: #432C51;
+    --amber-gold: #D4AF37;
+    --pearl-silver: #E8E9EB;
+    --midnight-blue: #191970;
+    --rich-burgundy: #800020;
+    --charcoal-black: #36454F;
+    --rose-petal: #F5C4D1;
+    --lavender-mist: #E6E6FA;
+    --sky-blue: #A4D8F2;
+    --wisteria: #C9A0DC;
   }
 
   .dark {
@@ -71,9 +82,18 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Fantasy theme variables for dark mode */
-    --twilight-purple: #372a57;
-    --dawn-peach: #c9917f;
+    /* Romantic theme variables for dark mode */
+    --deep-blush: #FF6B94;
+    --velvet-purple: #9678B6;
+    --amber-gold: #FFD700;
+    --pearl-silver: #F5F5F5;
+    --midnight-blue: #4040A1;
+    --rich-burgundy: #C41E3A;
+    --charcoal-black: #708090;
+    --rose-petal: #FFD1DC;
+    --lavender-mist: #E6E6FA;
+    --sky-blue: #A4D8F2;
+    --wisteria: #D8BFD8;
   }
 }
 
@@ -89,43 +109,43 @@
 
 @layer components {
   .fantasy-module-card {
-    @apply relative p-6 rounded-xl backdrop-blur-sm bg-white/10 border border-fantasy-pearl/30
-          shadow-lg overflow-hidden transition-all duration-500 transform hover:scale-[1.02]
+    @apply relative p-6 rounded-xl backdrop-blur-sm border border-amber-gold/30
+          shadow-lg overflow-hidden transition-all duration-700 transform hover:scale-[1.03]
           hover:shadow-xl flex flex-col items-center;
   }
 
   .fantasy-module-card::before {
     content: "";
-    @apply absolute inset-0 bg-gradient-to-br from-fantasy-lavender/20 to-fantasy-rose/20
-          opacity-60 z-0;
+    @apply absolute inset-0 bg-gradient-to-br from-rose-petal/30 to-lavender-mist/30
+          opacity-70 z-0;
   }
 
   .fantasy-module-card:hover::before {
-    @apply opacity-80;
+    @apply opacity-90;
   }
 
-  .fantasy-gold-border {
-    @apply border-2 border-fantasy-gold/50 before:absolute before:inset-0 before:rounded-xl
-          before:border before:border-fantasy-pearl/20 before:m-0.5;
+  .romantic-gold-border {
+    @apply border-2 border-amber-gold/60 before:absolute before:inset-0 before:rounded-xl
+          before:border before:border-pearl-silver/30 before:m-0.5;
   }
 
-  .fantasy-title {
-    @apply font-cursive text-4xl md:text-5xl lg:text-6xl text-fantasy-gold drop-shadow-lg
-          bg-clip-text text-transparent bg-gradient-to-r from-fantasy-gold to-fantasy-pearl;
+  .romantic-title {
+    @apply font-playfair text-5xl md:text-6xl lg:text-7xl text-amber-gold drop-shadow-lg
+          bg-clip-text text-transparent bg-gradient-to-r from-deep-blush to-velvet-purple;
   }
 
-  .fantasy-subtitle {
-    @apply font-serif text-xl md:text-2xl text-fantasy-pearl/90 italic;
+  .romantic-subtitle {
+    @apply font-parisienne text-3xl md:text-4xl text-pearl-silver/90 italic;
   }
 
-  .fantasy-button {
-    @apply px-6 py-3 rounded-lg bg-fantasy-gold/20 hover:bg-fantasy-gold/30
-          text-fantasy-gold border border-fantasy-gold/50 transition-all
+  .romantic-button {
+    @apply px-6 py-3 rounded-lg bg-amber-gold/20 hover:bg-amber-gold/30
+          text-amber-gold border border-amber-gold/50 transition-all
           shadow-lg hover:shadow-xl backdrop-blur-sm;
   }
   
   .starry-background {
-    @apply fixed inset-0 bg-starry-gradient z-[-1];
+    @apply fixed inset-0 bg-romantic-gradient z-[-1];
   }
   
   .shimmer-effect {
@@ -143,5 +163,47 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  
+  /* New romantic classes */
+  .love-letter-card {
+    @apply relative p-6 rounded-xl border border-amber-gold/40 
+           shadow-lg overflow-hidden transition-all duration-700 
+           bg-cream-parchment backdrop-blur-sm;
+  }
+  
+  .love-letter-card:hover {
+    @apply transform hover:scale-[1.03] hover:shadow-2xl;
+  }
+  
+  .lace-border {
+    @apply absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-500;
+  }
+  
+  .love-letter-card:hover .lace-border {
+    @apply opacity-70;
+  }
+
+  .romantic-icon {
+    @apply relative w-16 h-16 flex items-center justify-center mb-4;
+  }
+  
+  .romantic-icon::before {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-amber-gold/10 animate-pulse-glow;
+  }
+  
+  .romantic-ribbon {
+    @apply relative w-full overflow-hidden py-4 my-8;
+  }
+  
+  .ribbon-text {
+    @apply font-parisienne text-4xl md:text-5xl lg:text-6xl text-deep-blush drop-shadow-lg
+           bg-clip-text text-transparent bg-gradient-to-r from-deep-blush to-velvet-purple
+           animate-pulse-slow;
+  }
+  
+  .falling-petals {
+    @apply fixed inset-0 pointer-events-none z-0;
   }
 }

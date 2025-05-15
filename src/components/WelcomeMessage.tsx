@@ -43,31 +43,35 @@ const WelcomeMessage: React.FC = () => {
       animate={visible ? "visible" : "hidden"}
       variants={messageVariants}
     >
-      <motion.h1 
-        className="fantasy-title mb-6"
-        variants={lineVariants}
-      >
-        Cara's Chronicle
-      </motion.h1>
-      
-      <motion.p 
-        className="fantasy-subtitle max-w-2xl mx-auto mb-8"
-        variants={lineVariants}
-      >
-        Welcome, dreamer, to your chronicle of wonders
-      </motion.p>
+      <div className="romantic-ribbon">
+        <motion.h1 
+          className="ribbon-text"
+          variants={lineVariants}
+          style={{animationDelay: "0.5s"}}
+        >
+          Cara's Chronicle
+        </motion.h1>
+        
+        <motion.p 
+          className="font-parisienne text-xl md:text-2xl mt-2 text-pearl-silver/80"
+          variants={lineVariants}
+          style={{animationDelay: "0.8s"}}
+        >
+          Where Dreams Whisper Love
+        </motion.p>
+      </div>
       
       <motion.div 
-        className="w-24 h-1 mx-auto bg-fantasy-gold/50 rounded-full mb-8"
+        className="w-32 h-1 mx-auto bg-amber-gold/50 rounded-full mb-8"
         variants={lineVariants}
       />
       
       <motion.p 
-        className="text-fantasy-pearl/80 max-w-xl mx-auto leading-relaxed"
+        className="text-pearl-silver/80 max-w-xl mx-auto leading-relaxed font-serif text-lg"
         variants={lineVariants}
       >
-        Here, amidst the glow of starlit pages and whispers of ancient ink, 
-        your journey awaits. Let your imagination flow freely across these enchanted realms.
+        Here, amidst the glow of moonlit gardens and whispers of gentle breezes, 
+        your heart's journey awaits. Let your dreams flow freely across these enchanted realms.
       </motion.p>
     </motion.div>
   );
