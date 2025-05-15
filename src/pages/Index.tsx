@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import RomanticBackground from '@/components/RomanticBackground';
+import StarryBackground from '@/components/StarryBackground';
 import ScrollParchment from '@/components/ScrollParchment';
 import ModuleCard from '@/components/ModuleCard';
 import WelcomeMessage from '@/components/WelcomeMessage';
-import FallingRosePetals from '@/components/FallingRosePetals';
+import FloatingSparks from '@/components/FloatingSparks';
 import { Book, CalendarDays, Award, PenTool, Moon, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
@@ -18,9 +18,9 @@ const Index = () => {
     // Show a welcome toast when the page loads
     setTimeout(() => {
       toast({
-        title: "A Love Story Begins",
-        description: "Your romantic journey awaits...",
-        className: "bg-velvet-purple/90 border border-amber-gold/40 text-pearl-silver font-serif",
+        title: "Chronicles Await",
+        description: "Your magical journey has begun...",
+        className: "bg-fantasy-twilight/90 border border-fantasy-gold/30 text-fantasy-pearl",
       });
     }, 2000);
   }, [toast]);
@@ -32,8 +32,8 @@ const Index = () => {
     // In a full implementation, we would initialize audio here
     toast({
       title: audioEnabled ? "Sounds Muted" : "Sounds Enchanted",
-      description: audioEnabled ? "The melody falls silent." : "Romantic melodies now accompany your journey.",
-      className: "bg-velvet-purple/90 border border-amber-gold/40 text-pearl-silver font-serif",
+      description: audioEnabled ? "The ambiance falls silent." : "Magical sounds now accompany your journey.",
+      className: "bg-fantasy-twilight/90 border border-fantasy-gold/30 text-fantasy-pearl",
     });
   };
 
@@ -43,7 +43,7 @@ const Index = () => {
       title: "Writer's Studio",
       description: "Where your tales and stories come to life, guided by the magic of inspiration.",
       icon: PenTool,
-      hoverText: "Craft your heart's tales",
+      hoverText: "Weave your tales",
       href: "/writers-studio"
     },
     {
@@ -86,8 +86,8 @@ const Index = () => {
   return (
     <div className="min-h-screen text-white relative overflow-hidden">
       {/* Background elements */}
-      <RomanticBackground />
-      <FallingRosePetals />
+      <StarryBackground />
+      <FloatingSparks />
       
       {/* Main content */}
       <div className="container py-8 md:py-12 px-4 relative z-10">
@@ -110,26 +110,25 @@ const Index = () => {
           </div>
           
           {/* Footer */}
-          <div className="text-center mt-12 text-pearl-silver/70 flex items-center justify-center gap-4">
+          <div className="text-center mt-12 text-fantasy-pearl/70 flex items-center justify-center gap-4">
             <button 
               onClick={toggleAudio}
-              className="text-sm flex items-center gap-2 px-4 py-2 rounded-full 
-                        bg-velvet-purple/40 hover:bg-velvet-purple/60
-                        border border-amber-gold/30 transition-all"
-              aria-label={audioEnabled ? "Mute Sounds" : "Enable Sounds"}
+              className="text-sm flex items-center gap-2 px-3 py-1 rounded-full 
+                        bg-fantasy-twilight/30 hover:bg-fantasy-twilight/50
+                        border border-fantasy-gold/20 transition-all"
             >
-              <span className={`w-3 h-3 rounded-full ${audioEnabled ? 'bg-amber-gold' : 'bg-white/50'}`}></span>
-              {audioEnabled ? 'Mute Melody' : 'Enable Melody'}
+              <span className={`w-2 h-2 rounded-full ${audioEnabled ? 'bg-fantasy-gold' : 'bg-white/50'}`}></span>
+              {audioEnabled ? 'Mute Sounds' : 'Enable Sounds'}
             </button>
           </div>
         </ScrollParchment>
       </div>
       
-      {/* Decorative corner elements */}
-      <div className="absolute top-0 left-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwQzUwIDAgMTAwIDUwIDEwMCAxMDBINTBDNTAgNTAgNTAgMCAwIDBaIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIvPjwvc3ZnPg==')] opacity-30"></div>
-      <div className="absolute top-0 right-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBDNTAgMCAwIDUwIDAgMTAwSDUwQzUwIDUwIDUwIDAgMTAwIDBaIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIvPjwvc3ZnPg==')] opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAxMDBDNTAgMTAwIDEwMCA1MCAxMDAgMEg1MEM1MCA1MCA1MCAxMDAgMCAxMDBaIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIvPjwvc3ZnPg==')] opacity-30"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDEwMEM1MCAxMDAgMCA1MCAwIDBINTBDNTAgNTAgNTAgMTAwIDEwMCAxMDBaIiBmaWxsPSJyZ2JhKDIxMiwgMTc1LCA1NSwgMC4zKSIvPjwvc3ZnPg==')] opacity-30"></div>
+      {/* Decorative corner filigree */}
+      <div className="absolute top-0 left-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwQzUwIDAgMTAwIDUwIDEwMCAxMDBINTBDNTAgNTAgNTAgMCAwIDBaIiBmaWxsPSJyZ2JhKDI0MiwgMjA5LCAxMDcsIDAuMykiLz48L3N2Zz4=')] opacity-30"></div>
+      <div className="absolute top-0 right-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBDNTAgMCAwIDUwIDAgMTAwSDUwQzUwIDUwIDUwIDAgMTAwIDBaIiBmaWxsPSJyZ2JhKDI0MiwgMjA5LCAxMDcsIDAuMykiLz48L3N2Zz4=')] opacity-30"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAxMDBDNTAgMTAwIDEwMCA1MCAxMDAgMEg1MEM1MCA1MCA1MCAxMDAgMCAxMDBaIiBmaWxsPSJyZ2JhKDI0MiwgMjA5LCAxMDcsIDAuMykiLz48L3N2Zz4=')] opacity-30"></div>
+      <div className="absolute bottom-0 right-0 w-24 h-24 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDEwMEM1MCAxMDAgMCA1MCAwIDBINTBDNTAgNTAgNTAgMTAwIDEwMCAxMDBaIiBmaWxsPSJyZ2JhKDI0MiwgMjA5LCAxMDcsIDAuMykiLz48L3N2Zz4=')] opacity-30"></div>
     </div>
   );
 };
