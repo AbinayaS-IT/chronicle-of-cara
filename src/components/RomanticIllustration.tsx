@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Book, Flower, Quill, Star } from 'lucide-react';
+import { Book, Flower, PenTool, Star } from 'lucide-react';
 
 interface RomanticIllustrationProps {
   type: 'rose' | 'quill' | 'book' | 'star';
@@ -13,7 +13,7 @@ const RomanticIllustration: React.FC<RomanticIllustrationProps> = ({ type, class
   const getIcon = () => {
     switch (type) {
       case 'rose': return <Flower size={24} />;
-      case 'quill': return <Quill size={24} />;
+      case 'quill': return <PenTool size={24} />;  // Changed from Quill to PenTool
       case 'book': return <Book size={24} />;
       case 'star': return <Star size={24} />;
       default: return <Star size={24} />;
