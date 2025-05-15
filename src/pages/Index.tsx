@@ -5,7 +5,7 @@ import ScrollParchment from '@/components/ScrollParchment';
 import ModuleCard from '@/components/ModuleCard';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import FloatingSparks from '@/components/FloatingSparks';
-import { Book, CalendarDays, Award, Quill, CrescentMoon, Health } from 'lucide-react';
+import { Book, CalendarDays, Award, PenTool, Moon, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
 
@@ -42,14 +42,14 @@ const Index = () => {
     {
       title: "Writer's Studio",
       description: "Where your tales and stories come to life, guided by the magic of inspiration.",
-      icon: Quill,
+      icon: PenTool,
       hoverText: "Weave your tales",
       href: "/writers-studio"
     },
     {
       title: "Diary & Notes",
       description: "Capture your thoughts and memories within these enchanted pages.",
-      icon: CrescentMoon,
+      icon: Moon,
       hoverText: "Preserve your memories",
       href: "/diary"
     },
@@ -63,7 +63,7 @@ const Index = () => {
     {
       title: "Health Tracker",
       description: "Tend to your wellbeing with potions and rituals for vitality.",
-      icon: Health,
+      icon: Heart,
       hoverText: "Brew your vitality",
       href: "/health"
     },
