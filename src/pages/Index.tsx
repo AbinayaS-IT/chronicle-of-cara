@@ -5,6 +5,8 @@ import ScrollParchment from '@/components/ScrollParchment';
 import ModuleCard from '@/components/ModuleCard';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import FallingRosePetals from '@/components/FallingRosePetals';
+import RomanticIllustration from '@/components/RomanticIllustration';
+import RomanticQuote from '@/components/RomanticQuote';
 import { Book, CalendarDays, Award, PenTool, Moon, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast";
@@ -36,6 +38,16 @@ const Index = () => {
       className: "bg-velvet-purple/90 border border-amber-gold/40 text-pearl-silver font-serif",
     });
   };
+
+  // Collection of romantic quotes
+  const romanticQuotes = [
+    "Love writes the stars",
+    "Dreams bloom in whispers",
+    "Hearts dance in moonlight",
+    "Forever begins with a page",
+    "Memories are timeless poems",
+    "Whispers echo in eternity"
+  ];
 
   // Module data
   const modules = [
@@ -89,24 +101,50 @@ const Index = () => {
       <RomanticBackground />
       <FallingRosePetals />
       
+      {/* Scattered illustrations */}
+      <RomanticIllustration type="rose" className="top-[15%] left-[5%]" />
+      <RomanticIllustration type="quill" className="top-[25%] right-[8%]" />
+      <RomanticIllustration type="book" className="bottom-[20%] left-[7%]" />
+      <RomanticIllustration type="star" className="bottom-[15%] right-[6%]" />
+      <RomanticIllustration type="rose" className="top-[45%] left-[3%]" />
+      <RomanticIllustration type="star" className="top-[10%] right-[15%]" />
+      
       {/* Main content */}
       <div className="container py-8 md:py-12 px-4 relative z-10">
         <ScrollParchment>
           {/* Welcome message */}
           <WelcomeMessage />
           
+          {/* First quote */}
+          <div className="flex justify-center mb-8">
+            <RomanticQuote text={romanticQuotes[0]} className="max-w-sm" />
+          </div>
+          
           {/* Module cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {modules.map((module, index) => (
-              <ModuleCard
-                key={index}
-                title={module.title}
-                description={module.description}
-                icon={module.icon}
-                hoverText={module.hoverText}
-                delay={300 + index * 150}
-              />
+              <React.Fragment key={index}>
+                <ModuleCard
+                  title={module.title}
+                  description={module.description}
+                  icon={module.icon}
+                  hoverText={module.hoverText}
+                  delay={300 + index * 150}
+                />
+                {/* Add quotes between some cards */}
+                {(index === 1 || index === 3) && (
+                  <RomanticQuote 
+                    text={romanticQuotes[(index % romanticQuotes.length) + 1]} 
+                    className="md:col-span-2 lg:col-span-3 max-w-md mx-auto my-2"
+                  />
+                )}
+              </React.Fragment>
             ))}
+          </div>
+          
+          {/* Final quote */}
+          <div className="flex justify-center mb-8">
+            <RomanticQuote text={romanticQuotes[5]} className="max-w-sm" />
           </div>
           
           {/* Footer */}
